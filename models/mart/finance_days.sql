@@ -26,4 +26,3 @@ SELECT
     quantity,
     ROUND(revenue / NULLIF(nb_transactions, 0), 2) AS average_basket
 FROM orders_per_day
-GROUP BY date_date
