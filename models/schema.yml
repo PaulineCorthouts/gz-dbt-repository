@@ -67,6 +67,58 @@ sources:
              description: nb of views
            - name: click
              description: nb clicks to check out ad
-             
-
+       - name: bing
+         identifier: raw_gz_bing
+         description: bing of Greenweez / we have one row per day
+         columns: 
+           - name: date_date
+             description: campaign date
+           - name: paid_source
+             description: source of the campainn
+           - name: campaign_key
+             description: campaign ref
+           - name: camPGN_name
+             description: campaign name
+           - name: ads_cost
+             description: cost of the add for company
+           - name: impression
+             description: nb of views
+           - name: click
+             description: nb clicks to check out ad             
+       - name: criteo
+         identifier: raw_gz_criteo
+         description: criteo of Greenweez / we have one row per day
+         columns: 
+           - name: date_date
+             description: campaign date
+           - name: paid_source
+             description: source of the campainn
+           - name: campaign_key
+             description: campaign ref
+           - name: camPGN_name
+             description: campaign name
+           - name: ads_cost
+             description: cost of the add for company
+           - name: impression
+             description: nb of views
+           - name: click
+             description: nb clicks to check out ad   
+       - name: facebook
+         identifier: raw_gz_facebook
+         description: facebook of Greenweez / we have one row per day
+         columns: 
+           - name: date_date
+             description: campaign date
+           - name: paid_source
+             description: source of the campainn
+           - name: campaign_key
+             description: campaign ref
+           - name: camPGN_name
+             description: campaign name
+           - name: ads_cost
+             description: cost of the add for company
+           - name: impression
+             description: nb of views
+           - name: click
+             description: nb clicks to check out ad   
 
