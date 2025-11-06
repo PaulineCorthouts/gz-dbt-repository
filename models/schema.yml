@@ -49,3 +49,24 @@ sources:
                - unique
            - name: purchSE_PRICE
              description: price of purchase
+       - name: adwords
+         identifier: raw_gz_adwords
+         description: Adwords of Greenweez / we have one row per day
+         columns: 
+           - name: date_date
+             description: campaign date
+           - name: paid_source
+             description: source of the campainn
+           - name: campaign_key
+             description: campaign ref
+           - name: camPGN_name
+             description: campaign name
+           - name: ads_cost
+             description: cost of the add for company
+           - name: impression
+             description: nb of views
+           - name: click
+             description: nb clicks to check out ad
+             
+
+
