@@ -13,7 +13,8 @@ purchase_cost AS(
         revenue,
         quantity,
         purchase_price, 
-        (quantity*purchase_price) as purchase_cost
+        (quantity*purchase_price) as purchase_cost,
+        {{ margin_percent('revenue', 'purchase_price',2) }} AS margin_percent
     FROM sales
 )
 SELECT 
@@ -24,5 +25,5 @@ SELECT
     quantity,
     purchase_price, 
     purchase_cost, 
-    (revenue-purchase_cost) as margin
+    (revenue-purchase_cost) as margin,
 FROM purchase_cost as pc
