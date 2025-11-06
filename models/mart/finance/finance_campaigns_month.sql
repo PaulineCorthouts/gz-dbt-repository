@@ -1,4 +1,3 @@
-
 SELECT 
 FORMAT_DATE('%Y-%m', date_date) as datemonth,
     revenue,
