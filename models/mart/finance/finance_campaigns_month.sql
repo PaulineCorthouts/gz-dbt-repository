@@ -14,4 +14,6 @@ FORMAT_DATE('%Y-%m', date_date) as datemonth,
     SUM(ship_cost) as ship_cost,
     SUM(quantity) as quantity
 FROM {{ ref('finance_campaigns_day') }}
+GROUP BY datemonth
+
 

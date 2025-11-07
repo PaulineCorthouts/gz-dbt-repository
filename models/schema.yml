@@ -355,6 +355,7 @@ models:
          description: date of the order
          tests:
            - not_null
+           - unique
        - name: revenue
          description: sum of revenue per order
          tests:
@@ -381,7 +382,5 @@ models:
            - not_null
        - name: average basket
          description: average spend
-     tests:
-       - unique:
-           column_name: "(quantity || '-' || datemonth)"
+
 
