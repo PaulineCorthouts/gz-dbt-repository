@@ -24,5 +24,6 @@ SELECT
     log_cost,
     ship_cost,
     quantity,
-    ROUND(revenue / NULLIF(nb_transactions, 0), 2) AS average_basket
+    ROUND(revenue / nb_transactions, 2) AS average_basket
 FROM orders_per_day
+

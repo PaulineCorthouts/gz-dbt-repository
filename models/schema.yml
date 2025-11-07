@@ -57,7 +57,6 @@ sources:
              description: campaign date
              tests:
                - not_null
-               - unique
            - name: paid_source
              description: source of the campainn
            - name: campaign_key
@@ -78,7 +77,6 @@ sources:
              description: campaign date
              tests:
                - not_null
-               - unique
            - name: paid_source
              description: source of the campainn
            - name: campaign_key
@@ -99,7 +97,6 @@ sources:
              description: campaign date
              tests:
                - not_null
-               - unique
            - name: paid_source
              description: source of the campainn
            - name: campaign_key
@@ -120,7 +117,6 @@ sources:
              description: campaign date
              tests:
                - not_null
-               - unique
            - name: paid_source
              description: source of the campainn
            - name: campaign_key
@@ -133,4 +129,217 @@ sources:
              description: nb of views
            - name: click
              description: nb clicks to check out ad   
+models:
+   - name: int_sales_margin
+     description: margin calculation per order
+     columns:
+       - name: orders_id
+         description: orders key
+         tests:
+           - not_null
+       - name: products_id
+         description: products key
+         tests:
+           - not_null
+       - name: margin
+         description: Margin = Revenue - Purchase_cost
+         tests:
+           - not_null
+       - name: purchase_cost
+         description: purchase_cost = Quantity * Purchase_price
+         tests:
+           - not_null
+       - name: date_date
+         description: date of the order
+         tests:
+           - not_null
+       - name: revenue
+         description: sum of revenue per order
+         tests:
+           - not_null
+       - name: quantity
+         description: sum of quantity per order
+         tests:
+           - not_null
+     tests:
+       - unique:
+           column_name: "(orders_id || '-' || products_id)"
+   - name: int_orders_margin
+     description: margin calculation per order
+     columns:
+       - name: orders_id
+         description: orders key
+         tests:
+           - not_null
+       - name: margin
+         description: Margin = Revenue - Purchase_cost
+         tests:
+           - not_null
+       - name: purchase_cost
+         description: purchase_cost = Quantity * Purchase_price
+         tests:
+           - not_null
+       - name: date_date
+         description: date of the order
+         tests:
+           - not_null
+       - name: revenue
+         description: sum of revenue per order
+         tests:
+           - not_null
+       - name: quantity
+         description: sum of quantity per order
+         tests:
+           - not_null
+     tests:
+       - unique:
+           column_name: "(orders_id || '-' || date_date)"
+   - name: int_orders_operational
+     description: ops calculation per order
+     columns:
+       - name: orders_id
+         description: orders key
+         tests:
+           - not_null
+       - name: margin
+         description: Margin = Revenue - Purchase_cost
+         tests:
+           - not_null
+       - name: purchase_cost
+         description: purchase_cost = Quantity * Purchase_price
+         tests:
+           - not_null
+       - name: date_date
+         description: date of the order
+         tests:
+           - not_null
+       - name: revenue
+         description: sum of revenue per order
+         tests:
+           - not_null
+       - name: quantity
+         description: sum of quantity per order
+         tests:
+           - not_null
+       - name: operational_margin
+         description: margin of ops cost
+         tests:
+           - not_null
+       - name: shipping_fee
+         description: ship cost
+         tests:
+           - not_null
+       - name: log_cost
+         description: logistics fee
+         tests:
+           - not_null
+       - name: ship_cost
+         description: ship cost for company
+         tests:
+           - not_null
+     tests:
+       - unique:
+           column_name: "(orders_id || '-' || date_date)"
+   - name: int_campaigns
+     description: campaign information
+     columns:
+       - name: _dbt_source_relation
+         description: source bigquery
+         tests:
+           - not_null
+       - name: date_date
+         description: date 
+         tests:
+           - not_null
+       - name: paid_source
+         description: media used
+         tests:
+           - not_null
+       - name: campaign_key
+         description: campaign_id
+         tests:
+           - not_null
+       - name: campaign_name
+         description: name of the campaign
+         tests:
+           - not_null
+       - name: ads_cost
+         description: price of the advertisement
+         tests:
+           - not_null
+       - name: impression 
+         description: visibility of the media 
+         tests:
+           - not_null
+       - name: click
+         description: click on the media
+         tests:
+           - not_null
+     tests:
+       - unique:
+           column_name: "(campaign_key || '-' || date_date)"
+   - name: int_campaigns_day
+     description: campaign information
+     columns:
+       - name: date_date
+         description: date 
+         tests:
+           - not_null
+           - unique
+       - name: ads_cost
+         description: price of the advertisement
+         tests:
+           - not_null
+       - name: impression 
+         description: visibility of the media 
+         tests:
+           - not_null
+       - name: click
+         description: click on the media
+         tests:
+           - not_null
+   - name: finance_days
+     description: ops calculation per order
+     columns:
+       - name: margin
+         description: Margin = Revenue - Purchase_cost
+         tests:
+           - not_null
+       - name: purchase_cost
+         description: purchase_cost = Quantity * Purchase_price
+         tests:
+           - not_null
+       - name: date_date
+         description: date of the order
+         tests:
+           - not_null
+           - unique
+       - name: revenue
+         description: sum of revenue per order
+         tests:
+           - not_null
+       - name: quantity
+         description: sum of quantity per order
+         tests:
+           - not_null
+       - name: operational_margin
+         description: margin of ops cost
+         tests:
+           - not_null
+       - name: shipping_fee
+         description: ship cost
+         tests:
+           - not_null
+       - name: log_cost
+         description: logistics fee
+         tests:
+           - not_null
+       - name: ship_cost
+         description: ship cost for company
+         tests:
+           - not_null
+       - name: average basket
+         description: average spend
+         tests:
+           - not_null
 
