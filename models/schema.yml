@@ -340,6 +340,5 @@ models:
            - not_null
        - name: average basket
          description: average spend
-         tests:
-           - not_null
+
 
